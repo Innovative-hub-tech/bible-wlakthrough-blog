@@ -1,0 +1,43 @@
+{
+  "name": "A Walkthrough Bible Series",
+  "short_name": "Bible Walkthrough",
+  "description": "Daily devotionals, Bible studies, and spiritual growth resources",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#7c3aed",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icons/icon-192x192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-192x192.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "categories": ["education", "lifestyle", "books"],
+  "shortcuts": [
+    {
+      "name": "Devotionals",
+      "url": "/category/devotionals",
+      "description": "Read daily devotionals"
+    },
+    {
+      "name": "Bible Studies",
+      "url": "/category/bible-studies",
+      "description": "Explore Bible studies"
+    }
+  ]
+}
