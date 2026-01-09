@@ -161,9 +161,17 @@ export default function HomePage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {posts.map((post) => (
                 <Link key={post.id} to={`/post/${post.slug}`} className="card overflow-hidden hover:shadow-lg transition-shadow">
-                  <div className="h-48 bg-gradient-to-br from-purple-400 to-purple-600">
+                  <div className="h-48 bg-gradient-to-br from-purple-400 to-purple-600 relative">
                     {post.thumbnail && (
-                      <img src={post.thumbnail} alt={post.title} className="w-full h-full object-cover" />
+                      <img 
+                        src={post.thumbnail} 
+                        alt={post.title} 
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          // Hide broken image and show gradient background
+                          (e.target as HTMLImageElement).style.display = 'none'
+                        }}
+                      />
                     )}
                   </div>
                   <div className="p-6">

@@ -173,7 +173,14 @@ export default function SearchPage() {
               <Link key={post.id} to={`/post/${post.slug}`} className="card overflow-hidden group">
                 <div className="h-40 bg-gradient-to-br from-purple-400 to-purple-600">
                   {post.thumbnail && (
-                    <img src={post.thumbnail} alt={post.title} className="w-full h-full object-cover" />
+                    <img 
+                      src={post.thumbnail} 
+                      alt={post.title} 
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).style.display = 'none'
+                      }}
+                    />
                   )}
                 </div>
                 <div className="p-6">
