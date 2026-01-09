@@ -139,8 +139,34 @@ export default function PostPage() {
           </div>
         </header>
 
-        {/* Scripture of the Day */}
-        {post.scriptureText && (
+        {/* First Scripture */}
+        {post.scripture1Text && (
+          <div className="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl p-6 mb-6 text-white">
+            <p className="text-sm font-medium text-purple-200 mb-2">Scripture of the Day</p>
+            <blockquote className="text-lg md:text-xl italic mb-2">
+              "{post.scripture1Text}"
+            </blockquote>
+            {post.scripture1Reference && (
+              <p className="text-purple-200 font-medium">— {post.scripture1Reference}</p>
+            )}
+          </div>
+        )}
+
+        {/* Second Scripture */}
+        {post.scripture2Text && (
+          <div className="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-xl p-6 mb-8 text-white">
+            <p className="text-sm font-medium text-indigo-200 mb-2">Supporting Scripture</p>
+            <blockquote className="text-lg md:text-xl italic mb-2">
+              "{post.scripture2Text}"
+            </blockquote>
+            {post.scripture2Reference && (
+              <p className="text-indigo-200 font-medium">— {post.scripture2Reference}</p>
+            )}
+          </div>
+        )}
+
+        {/* Legacy support for old scriptureText field */}
+        {!post.scripture1Text && post.scriptureText && (
           <div className="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl p-6 mb-8 text-white">
             <p className="text-sm font-medium text-purple-200 mb-2">Scripture of the Day</p>
             <blockquote className="text-lg md:text-xl italic mb-2">
@@ -232,9 +258,22 @@ export default function PostPage() {
 
         {/* Content */}
         <div 
-          className="prose prose-lg dark:prose-invert max-w-none mb-12"
+          className="prose prose-lg dark:prose-invert max-w-none mb-8"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
+
+        {/* Short Prayer */}
+        {post.shortPrayer && (
+          <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-6 mb-8">
+            <div className="flex items-center gap-2 mb-3">
+              <span className="text-2xl">🙏</span>
+              <h3 className="text-lg font-semibold text-amber-800 dark:text-amber-200">Short Prayer</h3>
+            </div>
+            <p className="text-amber-900 dark:text-amber-100 italic leading-relaxed">
+              {post.shortPrayer}
+            </p>
+          </div>
+        )}
 
         {/* Tags */}
         {post.tags && post.tags.length > 0 && (

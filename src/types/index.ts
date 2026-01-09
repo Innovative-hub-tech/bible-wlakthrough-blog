@@ -42,8 +42,16 @@ export interface Post {
   views: number
   readingTime?: number
   duration?: number
+  // Scripture fields (new)
+  scripture1Reference?: string
+  scripture1Text?: string
+  scripture2Reference?: string
+  scripture2Text?: string
+  // Legacy scripture fields (for backward compatibility)
   scriptureReference?: string
   scriptureText?: string
+  // Short prayer
+  shortPrayer?: string
   publishedAt?: Timestamp
   createdAt: Timestamp
   updatedAt: Timestamp
